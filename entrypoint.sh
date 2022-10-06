@@ -50,7 +50,7 @@ if [ "${NAME}" = "0" ]; then
 fi
 
 if [ "${MESSAGE}" = "0" ]; then
-  MESSAGE=$(conventional-changelog)
+  MESSAGE=$(conventional-changelog -p angular)
 fi
 
 echo "Next release : ${NEXT_RELEASE}"
