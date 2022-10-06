@@ -29,7 +29,7 @@ NEXT_RELEASE=$(date "+${DATE_FORMAT}")
 
 # ColemanB - Script looks for tags meeting requirements
 # and then looks up hash.
-LAST_RELEASE=$(git tag --sort=v:refname |grep "^20[^\-]*$" |tail -n 1)
+LAST_RELEASE=$(git tag --sort=v:refname |grep "^2\d{3}\-.*$" |tail -n 1)
 echo "Last release : ${LAST_RELEASE}"
 
 LAST_HASH="$(git show-ref -s "${LAST_RELEASE}")"
@@ -46,7 +46,7 @@ if [ "${MAJOR_LAST_RELEASE}" = "${NEXT_RELEASE}" ]; then
 fi
 
 if [ "${NAME}" = "0" ]; then
-	NAME="release: version ${NEXT_RELEASE}"
+	NAME="release: ${NEXT_RELEASE}"
 fi
 
 if [ "${MESSAGE}" = "0" ]; then
